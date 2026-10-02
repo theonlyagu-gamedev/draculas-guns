@@ -7,9 +7,13 @@ public class Movement : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float speed = 50f;
+    [SerializeField] private float acceleration = 10f;
 
     [Header("Components")]
     [SerializeField] private CharacterController ch;
+
+    // Smooth direction tools
+    private Vector3 smoothDirection;
 
     void Start()
     {
@@ -26,9 +30,11 @@ public class Movement : MonoBehaviour
         if (look.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(look);
 
         Vector2 input = GetKeyboardInput();
-        Vector3 direction = new Vector3(input.x, 0f, input.y);
+        Vector3 direction = new Vector3(input.x, 0f, input.y).normalized;
 
-        ch.Move(direction * speed * Time.deltaTime);
+        smoothDirection = Vector3.MoveTowards(smoothDirection, direction, acceleration * Time.deltaTime);
+
+        ch.Move(speed * Time.deltaTime * smoothDirection);
     }
 
     private Vector3 LookDirection()
