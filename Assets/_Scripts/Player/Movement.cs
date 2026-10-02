@@ -1,8 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(LookDirection))]
 public class Movement : MonoBehaviour
 {
     [Header("Attributes")]
@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private CharacterController ch;
+    [SerializeField] private LookDirection ld;
 
     // Smooth direction tools
     private Vector3 smoothDirection;
@@ -18,6 +19,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         ch = GetComponent<CharacterController>();
+        ld = GetComponent<LookDirection>();
     }
 
     void Update()
@@ -26,7 +28,7 @@ public class Movement : MonoBehaviour
             !ValidateComponents()
         ) return;
 
-        Vector3 look = LookDirection();
+        Vector3 look = ld.Direction;
         if (look.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(look);
 
         Vector2 input = GetKeyboardInput();
@@ -37,30 +39,12 @@ public class Movement : MonoBehaviour
         ch.Move(speed * Time.deltaTime * smoothDirection);
     }
 
-    private Vector3 LookDirection()
-    {
-        Camera cam = Camera.main;
-        if (cam == null) return transform.forward;
-
-        Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Plane ground = new Plane(Vector3.up, transform.position);
-
-        if (ground.Raycast(ray, out float distance))
-        {
-            Vector3 target = ray.GetPoint(distance);
-            Vector3 dir = target - transform.position;
-            dir.y = 0f;
-            return dir.normalized;
-        }
-
-        return transform.forward;
-    }
-
     #region Tools
     private bool ValidateComponents()
     {
         if (
-            ch == null
+            ch == null ||
+            ld == null
         ) return false;
 
         return true;
