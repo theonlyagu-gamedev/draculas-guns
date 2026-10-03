@@ -33,14 +33,11 @@ public class Projectile : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            if (!other.TryGetComponent<IHealth>(out var health))
+            if (other.TryGetComponent<IHealth>(out var health))
             {
-                Debug.Log("Enemy Took Damage");
                 health.TakeDamage();
                 Destroy(gameObject);
             }
         }
-
-        Destroy(gameObject);
     }
 }

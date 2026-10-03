@@ -18,4 +18,9 @@ public abstract class IHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health - damagePoints, 0f, maxHealth);
     }
+
+    public float GetHealth()
+    {
+        return health;
+    }
 }
