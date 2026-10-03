@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         distance += Time.deltaTime * travelRate;
 
