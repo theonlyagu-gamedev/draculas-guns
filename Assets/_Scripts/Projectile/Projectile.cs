@@ -26,4 +26,21 @@ public class Projectile : MonoBehaviour
         // Move in the direction its facing
         rb.linearVelocity = transform.forward * speed;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player")) return;
+
+        if (other.CompareTag("Enemy"))
+        {
+            if (!other.TryGetComponent<IHealth>(out var health))
+            {
+                Debug.Log("Enemy Took Damage");
+                health.TakeDamage();
+                Destroy(gameObject);
+            }
+        }
+
+        Destroy(gameObject);
+    }
 }
