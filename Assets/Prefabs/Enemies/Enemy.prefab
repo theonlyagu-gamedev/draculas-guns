@@ -211,14 +211,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BloodSpikes
   <CanAttack>k__BackingField: 0
-  <MaxAttackTime>k__BackingField: 3
+  <MaxAttackTime>k__BackingField: 9
   <AttactTime>k__BackingField: 0
   <RechargeTime>k__BackingField: 10
   <MaxRechargeTime>k__BackingField: 10
   spikeRate: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   groundCheckDistance: 50
   dp: {fileID: 0}
   spike: {fileID: 695981156408781015, guid: ff081462a99e12e44b4b5017e670619b, type: 3}
