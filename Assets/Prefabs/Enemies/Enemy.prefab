@@ -50,6 +50,8 @@ GameObject:
   - component: {fileID: 4414403041187059097}
   - component: {fileID: 3507339252504391963}
   - component: {fileID: 705150665102313846}
+  - component: {fileID: 5186464082055222166}
+  - component: {fileID: 3011599932850784355}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -179,6 +181,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthDisplay
   healthSlider: {fileID: 8656783655141891080}
   health: {fileID: 3507339252504391963}
+--- !u!114 &5186464082055222166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772088172310876212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba421455ba06804497262ea0580515c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectPlayer
+  detectionRadius: 10
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  playerTransform: {fileID: 0}
+--- !u!114 &3011599932850784355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772088172310876212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140df3cd2996f1940a8de22ea8dda301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BloodSpikes
+  <CanAttack>k__BackingField: 0
+  <MaxAttackTime>k__BackingField: 3
+  <AttactTime>k__BackingField: 0
+  <RechargeTime>k__BackingField: 10
+  <MaxRechargeTime>k__BackingField: 10
+  spikeRate: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundCheckDistance: 50
+  dp: {fileID: 0}
+  spike: {fileID: 695981156408781015, guid: ff081462a99e12e44b4b5017e670619b, type: 3}
 --- !u!1 &5473970728978528013
 GameObject:
   m_ObjectHideFlags: 0
