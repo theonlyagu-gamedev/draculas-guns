@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(IPowerAttack))]
 public class DetectPlayer : MonoBehaviour
 {
     [Header("Attributes")]
