@@ -16,7 +16,6 @@ public class HealthDisplay : MonoBehaviour
         healthSlider.maxValue = health.GetHealth();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!ValidateComponents()) return;

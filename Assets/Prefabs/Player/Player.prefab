@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6546455146955657004}
   - component: {fileID: 1712667729918487694}
   - component: {fileID: 8875711749153510441}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 3759453847670845971}
   - component: {fileID: 1335316500399171791}
   - component: {fileID: 1396693880163766330}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TopViewCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 2265239221247993938}
   - component: {fileID: 1586993429726690642}
   - component: {fileID: 6145526192989646592}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
